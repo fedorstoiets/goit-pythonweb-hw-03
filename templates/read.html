@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Messages</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<main class="container">
+    <h1>Saved Messages</h1>
+
+    {% if messages %}
+        {% for timestamp, message in messages.items() %}
+            <div class="message-card">
+                <h3>{{ message.username }}</h3>
+
+                <p>{{ message.message }}</p>
+
+                <small>{{ timestamp }}</small>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No messages yet.</p>
+    {% endif %}
+
+    <p>
+        <a href="/">Back to Home</a>
+    </p>
+</main>
+
+</body>
+</html>
